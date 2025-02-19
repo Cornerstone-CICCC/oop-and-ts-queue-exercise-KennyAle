@@ -11,7 +11,6 @@ function groceryCheckout(queue) {
   while (!queue.isEmpty()) {
     let currentFirstElement = queue.dequeue()
     let total = 0
-    // let total = currentFirstElement.cart.reduce((acc, curr) => acc + curr.price, 0)
     for (let index = 0; index < currentFirstElement.cart.length; index++) {
       const cartItem = currentFirstElement.cart[index];
       total = total + cartItem.price

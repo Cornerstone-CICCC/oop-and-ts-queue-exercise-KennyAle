@@ -16,9 +16,6 @@ function processReturns(queue) {
       const books = currentFirstElement.books[index];
       totalFine = totalFine + (books.daysLate * 2)
     }
-    // currentFirstElement.books.forEach(book => {
-    //   totalFine = totalFine + (book.daysLate * 2)
-    // })
     if (totalFine != 0) {
       tempStack.enqueue(currentFirstElement)
     }
