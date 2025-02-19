@@ -7,7 +7,26 @@
 const Queue = require('../lib/Queue')
 
 function processReturns(queue) {
-  // your code here
+  let tempStack = new Queue()
+
+  while (!queue.isEmpty()) {
+    let currentFirstElement = queue.dequeue()
+    let totalFine = 0
+    for (let index = 0; index < currentFirstElement.books.length; index++) {
+      const books = currentFirstElement.books[index];
+      totalFine = totalFine + (books.daysLate * 2)
+    }
+    // currentFirstElement.books.forEach(book => {
+    //   totalFine = totalFine + (book.daysLate * 2)
+    // })
+    if (totalFine != 0) {
+      tempStack.enqueue(currentFirstElement)
+    }
+  }
+
+  while (!tempStack.isEmpty()) {
+    queue.enqueue(tempStack.dequeue())
+  }
 }
 
 const returns = new Queue();
